@@ -1,0 +1,64 @@
+//color
+$text_dark: #76363e;
+$text_link: #e46087;
+$btn_dark: #ac2e63;
+$btn_bg: #ffffffde;
+$counter_text: #a7aaf4;
+$counter_digit: #f4cde48c;
+$counter_digit_active: #f193d0d6;
+$counter_bg: #ffffffde;
+$cabinet_bg: #FFFFFFF5;
+$admin_bg: #dce1ffe3;
+$bg_pink: #f4e4ff;
+$input_bg: #ffeff7cf;
+$msg_status: #0DDE3DF0;
+
+//containers
+$container_UHD: 2460px;
+$container_QHD: 2140px;
+$container_FHD: 1720px;
+$container_HD: 1240px;
+$container_tablet: 768px;
+$container_smartphone: calc((100vw - 24px));
+
+//breakpoints
+$breakpoint_QHD: 2520px;
+$breakpoint_FHD: 2220px;
+$breakpoint_HD: 1780px;
+$breakpoint_tablet: 1300px;
+$breakpoint_smartphone: 790px;
+
+//cabinet container
+$cabinet_UHD: 1300px;
+$cabinet_QHD: 1160px;
+$cabinet_FHD: 920px;
+$cabinet_HD: 720px;
+$cabinet_smartphone: 340px;
+
+//feedback modal container
+$feedback_UHD: 880px;
+$feedback_QHD: 770px;
+$feedback_FHD: 650px;
+$feedback_tablet: 540px;
+$feedback_smartphone: 320px;
+
+
+@mixin shadow {
+  box-shadow: 0 0 53px -13px rgba(255,5,205,0.6);
+}
+
+@mixin font{
+  font-family: SofiaSans, sans-serif;
+}
+
+@mixin inset {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: fixed;
+}
+
+@function linear_anim($s){
+  @return $s all ease-in-out;
+}

@@ -1,0 +1,103 @@
+@use "@styles/config/mixins";
+
+@media (width < mixins.$breakpoint_QHD) {
+  .nav {
+    width: mixins.$container_QHD;
+    padding-top: 50px;
+    column-gap: 30px;
+    &__data {
+      column-gap: 15px;
+      & span {
+        font-size: 20px;
+      }
+      & img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    &__btn {
+      font-size: 22px;
+      width: 250px;
+    }
+  }
+}
+
+@media (width < mixins.$breakpoint_FHD) {
+  .nav {
+    width: mixins.$container_FHD;
+    padding-top: 30px;
+    column-gap: 20px;
+    &__data {
+      column-gap: 10px;
+      & span {
+        font-size: 16px;
+      }
+      & img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    &__btn {
+      font-size: 18px;
+      width: 210px;
+    }
+  }
+}
+
+@media (width < mixins.$breakpoint_HD) {
+  .nav {
+    width: mixins.$container_HD;
+    padding-top: 30px;
+    column-gap: 20px;
+    &__data {
+      column-gap: 10px;
+      & span {
+        font-size: 16px;
+      }
+      & img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    &__btn {
+      font-size: 16px;
+      width: 210px;
+    }
+  }
+}
+
+@media (width < mixins.$breakpoint_tablet) {
+  .nav {
+    width: mixins.$container_tablet;
+    flex-direction: column-reverse;
+    row-gap: 16px;
+    align-items: flex-end;
+    &__data {
+      column-gap: 10px;
+      flex-direction: row-reverse;
+      & span {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (width < mixins.$breakpoint_smartphone) {
+  .nav {
+    padding-top: 20px;
+    width: mixins.$container_smartphone;
+    &__data {
+      & span {
+        font-size: 17px;
+      }
+      & img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+    &__btn {
+      font-size: 14px;
+      width: 180px;
+    }
+  }
+}

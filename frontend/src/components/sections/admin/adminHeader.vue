@@ -1,0 +1,144 @@
+<script setup lang="ts">
+import BreadCrumbs from "@ui/admin/breadCrumbs.vue";
+import { useUiStore } from "@state/pinia.ts";
+
+const uiStore = useUiStore();
+</script>
+
+<template>
+	<header class="header">
+		<div class="header__open" :class="{ opened: uiStore.admin_sidebar_show }" @click="uiStore.admin_sidebar_show = !uiStore.admin_sidebar_show">
+			<div class="header__open_line header__open_line-top"></div>
+			<div class="header__open_line header__open_line-center"></div>
+			<div class="header__open_line header__open_line-bottom"></div>
+		</div>
+		<BreadCrumbs class="bread" :matched="$route.matched" />
+		<div class="header__inner">
+			<span class="header__info">Magic Wheel admin panel V-1.0</span>
+			<div class="header__feedback_outer" :data-active="uiStore.new_messages" @click="uiStore.message_open = !uiStore.message_open">
+				<svg class="header__feedback" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect width="60" height="60" rx="16" fill="#ffeff7cf" />
+					<path
+						d="M29.4962 48.782C29.1334 48.782 28.7781 48.6459 28.4984 48.3662L24.2804 44.1482C23.7285 43.5963 23.7285 42.7119 24.2804 42.1601C24.8322 41.6083 25.7166 41.6083 26.2684 42.1601L29.4962 45.3879L32.724 42.1601C32.9886 41.8955 33.3439 41.7443 33.7218 41.7443H43.5639C44.3425 41.7443 44.9699 41.1169 44.9699 40.3383V17.8421C44.9699 17.0711 44.3425 16.4361 43.5639 16.4361H15.4436C14.6726 16.4361 14.0376 17.0711 14.0376 17.8421V40.3383C14.0376 41.1169 14.6726 41.7443 15.4436 41.7443H19.6617C20.4403 41.7443 21.0677 42.3717 21.0677 43.1503C21.0677 43.9289 20.4403 44.5564 19.6617 44.5564H15.4436C13.1154 44.5564 11.2256 42.6666 11.2256 40.3383L11.2256 17.8421C11.2256 15.5139 13.1154 13.6241 15.4436 13.6241H43.5639C45.8922 13.6241 47.782 15.5139 47.782 17.8421V40.3383C47.782 42.6666 45.8922 44.5564 43.5639 44.5564H34.2963L30.494 48.3662C30.2219 48.6383 29.8591 48.782 29.4962 48.782Z"
+						fill="#F588A9"
+					/>
+					<path
+						d="M21.7631 30.4962C20.599 30.4962 19.6541 29.5513 19.6541 28.3872C19.6541 27.2231 20.599 26.2782 21.7631 26.2782C22.9273 26.2782 23.8722 27.2231 23.8722 28.3872C23.8722 29.5513 22.9273 30.4962 21.7631 30.4962Z"
+						fill="#F588A9"
+					/>
+					<path
+						d="M30.1992 30.4962C29.0351 30.4962 28.0902 29.5513 28.0902 28.3872C28.0902 27.2231 29.0351 26.2782 30.1992 26.2782C31.3633 26.2782 32.3082 27.2231 32.3082 28.3872C32.3082 29.5513 31.3633 30.4962 30.1992 30.4962Z"
+						fill="#F588A9"
+					/>
+					<path
+						d="M38.6429 30.4962C37.4788 30.4962 36.5339 29.5513 36.5339 28.3872C36.5339 27.2231 37.4788 26.2782 38.6429 26.2782C39.807 26.2782 40.7519 27.2231 40.7519 28.3872C40.7519 29.5513 39.7994 30.4962 38.6429 30.4962Z"
+						fill="#F588A9"
+					/>
+				</svg>
+			</div>
+		</div>
+	</header>
+</template>
+
+<style scoped lang="scss">
+@use "@styles/config/mixins";
+
+.header {
+	grid-area: head;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	@include mixins.shadow;
+	background-color: mixins.$cabinet_bg;
+	padding: 0 100px;
+	z-index: 10;
+	& .bread {
+		color: mixins.$text_dark;
+		column-gap: 1.5em;
+		font-size: 26px;
+		font-weight: 500;
+		letter-spacing: 0.08rem;
+	}
+	&__open {
+		display: none;
+		min-width: 40px;
+		min-height: 40px;
+		cursor: pointer;
+		border-radius: 8px;
+		background-color: mixins.$input_bg;
+		flex-direction: column;
+		row-gap: 6px;
+		justify-content: center;
+		align-items: center;
+		margin-right: 20px;
+		&_line {
+			width: 24px;
+			height: 2px;
+			border-radius: 10px;
+			background-color: #f588a9;
+			transition: mixins.linear_anim(0.7s);
+			&-center {
+				transition: mixins.linear_anim(0.4s);
+			}
+		}
+		&.opened .header__open_line {
+			&-top {
+				rotate: 45deg;
+				width: 28px;
+				translate: 0 7px;
+			}
+			&-center {
+				width: 0;
+				height: 0;
+			}
+			&-bottom {
+				rotate: 135deg;
+				width: 28px;
+				translate: 0 -7px;
+			}
+		}
+	}
+	&__inner {
+		display: flex;
+		column-gap: 60px;
+		height: 100%;
+		align-items: center;
+	}
+	&__info {
+		font-size: 26px;
+		font-weight: 400;
+		color: mixins.$text_dark;
+		@include mixins.font;
+	}
+	&__feedback {
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+		transition: mixins.linear_anim(0.7s);
+		&_outer {
+			position: relative;
+			&[data-active="true"]:after {
+				content: "";
+				position: absolute;
+				top: 2px;
+				right: 2px;
+				width: 12px;
+				height: 12px;
+				border-radius: 100%;
+				background-color: mixins.$msg_status;
+			}
+		}
+		& rect {
+			transition: mixins.linear_anim(0.7s);
+		}
+		&:hover {
+			scale: 1.1;
+			& rect {
+				fill: #f8d9e8ce;
+			}
+		}
+	}
+}
+
+@import "@styles/mediaQueries/admin/adminHeaderQueries";
+</style>

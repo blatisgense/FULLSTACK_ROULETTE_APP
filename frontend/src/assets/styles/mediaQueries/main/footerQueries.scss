@@ -1,0 +1,41 @@
+@use "@styles/config/mixins";
+
+@media (width < mixins.$breakpoint_QHD) {
+  .footer {
+    padding: 34px;
+    row-gap: 20px;
+    &__title {
+      font-size: 26px;
+    }
+    &__cards {
+      column-gap: 10px;
+    }
+  }
+}
+
+@media (width < mixins.$breakpoint_FHD) {
+  .footer {
+    padding: 24px;
+    row-gap: 15px;
+    &__title {
+      font-size: 22px;
+    }
+  }
+}
+
+@media (width < mixins.$breakpoint_smartphone) {
+  .footer {
+    width: mixins.$container_smartphone;
+    padding: 16px;
+    row-gap: 10px;
+    &__title {
+      max-width: 290px;
+      align-self: center;
+    }
+    &__cards {
+      grid-template-columns: 1fr;
+      row-gap: 12px;
+      justify-items: start;
+    }
+  }
+}

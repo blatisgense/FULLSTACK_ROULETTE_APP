@@ -1,0 +1,126 @@
+@use "@styles/config/mixins";
+
+@media (width < mixins.$breakpoint_QHD) {
+  .wheel {
+    &__container {
+      width: 720px;
+      height: 720px;
+    }
+    &__inner {
+      width: 720px;
+      height: 720px;
+    }
+    &__wheel {
+      width: 720px;
+      height: 720px;
+    }
+    &__outer {
+      width: 750px;
+      height: 750px;
+    }
+    &__center {
+      width: 145px;
+      height: 145px;
+    }
+    &__prize {
+      width: 86px;
+      height: 88px;
+      right: 316px;
+      bottom: 114px;
+    }
+  }
+}
+
+@media (width < mixins.$breakpoint_FHD) {
+  .wheel {
+    &__container {
+      width: 650px;
+      height: 650px;
+    }
+    &__inner {
+      width: 650px;
+      height: 650px;
+    }
+    &__wheel {
+      width: 650px;
+      height: 650px;
+    }
+    &__outer {
+      width: 670px;
+      height: 670px;
+    }
+    &__center {
+      width: 120px;
+      height: 120px;
+    }
+    &__prize {
+      width: 82px;
+      height: 84px;
+      right: 281px;
+      bottom: 109px;
+    }
+  }
+}
+
+@media (width < mixins.$breakpoint_HD) {
+  .wheel {
+    &__container {
+      width: 490px;
+      height: 490px;
+    }
+    &__inner {
+      width: 490px;
+      height: 490px;
+    }
+    &__wheel {
+      width: 490px;
+      height: 490px;
+    }
+    &__outer {
+      width: 500px;
+      height: 500px;
+    }
+    &__center {
+      width: 95px;
+      height: 95px;
+    }
+    &__prize {
+      width: 63px;
+      height: 65px;
+      right: 210px;
+      bottom: 68px;
+    }
+  }
+}
+
+@media (width < mixins.$breakpoint_smartphone) {
+  .wheel {
+    &__container {
+      width: 330px;
+      height: 330px;
+    }
+    &__inner {
+      width: 330px;
+      height: 330px;
+    }
+    &__wheel {
+      width: 330px;
+      height: 330px;
+    }
+    &__outer {
+      width: 340px;
+      height: 340px;
+      rotate: 6deg;
+    }
+    &__center {
+      width: 75px;
+      height: 75px;
+    }
+    &__prize {
+      width: 40px;
+      height: 44px;
+      right: 144px;
+      bottom: 54px;
+    }
+  }
+}

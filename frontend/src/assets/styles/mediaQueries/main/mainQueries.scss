@@ -1,0 +1,41 @@
+@use "@styles/config/mixins";
+
+@media (width < mixins.$breakpoint_QHD) {
+  .main{
+    width: mixins.$container_QHD;
+    padding: 100px 0;
+    column-gap: 30px;
+  }
+}
+
+@media (width < mixins.$breakpoint_FHD) {
+  .main{
+    width: mixins.$container_FHD;
+    padding: 80px 0;
+    column-gap: 25px;
+  }
+}
+
+@media (width < mixins.$breakpoint_HD) {
+  .main{
+    width: mixins.$container_HD;
+    padding: 70px 0;
+  }
+}
+
+@media (width < mixins.$breakpoint_tablet) {
+  .main{
+    width: mixins.$container_tablet;
+    padding: 65px 0;
+    row-gap: 60px;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (width < mixins.$breakpoint_smartphone) {
+  .main{
+    width: mixins.$container_smartphone;
+    padding: 55px 0;
+    row-gap: 50px;
+  }
+}

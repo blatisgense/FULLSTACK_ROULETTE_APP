@@ -1,0 +1,141 @@
+@use "@styles/config/mixins";
+
+@media (width < mixins.$breakpoint_QHD) {
+  .feedback {
+    &__container {
+      padding: 35px;
+      width: mixins.$feedback_QHD;
+    }
+    &__title {
+      font-size: 38px;
+    }
+    &__textarea {
+      font-size: 26px;
+      min-height: calc(175px - 8px);
+      &_outer {
+        height: 175px;
+      }
+    }
+    &__btn {
+      font-size: 26px;
+      height: 80px;
+      & svg {
+        width: 45px;
+        height: 45px;
+      }
+    }
+    &__input {
+      height: 80px;
+      font-size: 26px;
+    }
+    &__form {
+      margin-top: 35px;
+      row-gap: 18px;
+    }
+  }
+}
+
+@media (width < mixins.$breakpoint_FHD) {
+  .feedback {
+    &__container {
+      padding: 30px;
+      width: mixins.$feedback_FHD;
+    }
+    &__title {
+      font-size: 34px;
+    }
+    &__textarea {
+      font-size: 22px;
+      min-height: calc(150px - 8px);
+      &_outer {
+        height: 150px;
+      }
+    }
+    &__btn {
+      font-size: 22px;
+      height: 68px;
+      & svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    &__input {
+      height: 68px;
+      font-size: 22px;
+    }
+    &__form {
+      margin-top: 30px;
+      row-gap: 16px;
+    }
+  }
+}
+
+@media (width < mixins.$breakpoint_tablet) {
+  .feedback {
+    &__container {
+      padding: 20px;
+      width: mixins.$feedback_tablet;
+    }
+    &__title {
+      font-size: 28px;
+    }
+    &__textarea {
+      font-size: 17px;
+      min-height: calc(120px - 8px);
+      &_outer {
+        height: 120px;
+      }
+    }
+    &__btn {
+      font-size: 17px;
+      height: 58px;
+      & svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    &__input {
+      height: 58px;
+      font-size: 17px;
+    }
+    &__form {
+      margin-top: 25px;
+      row-gap: 10px;
+    }
+  }
+}
+
+@media (width < mixins.$breakpoint_smartphone) {
+  .feedback {
+    &__container {
+      padding: 16px;
+      width: mixins.$feedback_smartphone;
+    }
+    &__title {
+      font-size: 24px;
+    }
+    &__textarea {
+      font-size: 15px;
+      min-height: calc(100px - 8px);
+      &_outer {
+        height: 100px;
+      }
+    }
+    &__btn {
+      font-size: 15px;
+      height: 48px;
+      & svg {
+        width: 25px;
+        height: 25px;
+      }
+    }
+    &__input {
+      height: 48px;
+      font-size: 15px;
+    }
+    &__form {
+      margin-top: 25px;
+      row-gap: 10px;
+    }
+  }
+}

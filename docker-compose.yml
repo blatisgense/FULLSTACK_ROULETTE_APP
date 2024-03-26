@@ -1,0 +1,103 @@
+name: roulette_app
+version: '3.9'
+services:
+  frontend:
+    build:
+      context: ./
+      dockerfile: frontend/Dockerfile
+    environment:
+      - VITE_BACKEND_URL=${VITE_BACKEND_URL}
+      - VITE_APP_PORT=${VITE_APP_PORT}
+    volumes:
+      - frontend_node_modules:/app/node_modules
+    ports:
+      - ${VITE_APP_PORT}:${VITE_APP_PORT}
+    working_dir: /app
+    depends_on: [backend]
+    restart: always
+    image: frontend
+    container_name: roulette_app_frontend
+    stdin_open: true
+    command: ["vite", "--host"]
+    networks:
+      - postgres
+
+  backend:
+    build:
+      context: ./
+      dockerfile: backend/Dockerfile
+    environment:
+      - ACCESS_TOKEN_SECRET=${ACCESS_TOKEN_SECRET}
+      - UPDATE_TOKEN_SECRET=${UPDATE_TOKEN_SECRET}
+      - APP_PORT=${APP_PORT}
+      - PG_HOST=${PG_HOST}
+      - PG_PORT=${PG_PORT}
+      - PG_USER=${PG_USER}
+      - PG_PASS=${PG_PASS}
+      - PG_DB=${PG_DB}
+    volumes:
+      - backend_node_modules:/app/node_modules
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    working_dir: /app
+    restart: always
+    depends_on: [postgres]
+    image: backend
+    container_name: roulette_app_backend
+    stdin_open: true
+    command: ["nest", "start"]
+    networks:
+      - postgres
+
+  postgres:
+    image: postgres:14.8-alpine3.18
+    container_name: roulette_app_database
+    restart: always
+    environment:
+      - POSTGRES_DB=${PG_DB}
+      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_PASSWORD=${PG_PASS}
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - postgresql:/var/lib/postgresql/data
+    ports:
+      - ${PG_PORT}:${PG_PORT}
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 2G
+    networks:
+      - postgres
+
+  pgadmin:
+    container_name: roulette_app_pgadmin
+    image: dpage/pgadmin4:7.2
+    depends_on: [postgres]
+    environment:
+      - PGADMIN_CONFIG_SERVER_MODE=${PGADMIN_CONFIG_SERVER_MODE}
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+      - PGADMIN_DEFAULT_PASSWORD_FILE=${PGADMIN_DEFAULT_PASSWORD_FILE}
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 1G
+    restart: always
+    networks:
+    - postgres
+
+volumes:
+  backend_node_modules:
+  frontend_node_modules:
+  postgresql:
+  pgadmin:
+
+networks:
+  postgres:
+    driver: bridge

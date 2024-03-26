@@ -1,0 +1,44 @@
+@use "mixins";
+
+*{
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  list-style: none;
+  box-sizing: border-box;
+  border: none;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+body{
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow-x: hidden;
+  &[data-modal="true"]{
+    overflow-y: hidden;
+  }
+}
+
+select,button,a,.click{
+  cursor: pointer;
+}
+input, textarea{
+  cursor: text;
+}
+picture{
+  display: contents;
+}
+.page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  transition: mixins.linear_anim(0.5s);
+  &[data-modal="true"]{
+    filter: blur(6px) brightness(0.6);
+    overflow: hidden;
+  }
+}

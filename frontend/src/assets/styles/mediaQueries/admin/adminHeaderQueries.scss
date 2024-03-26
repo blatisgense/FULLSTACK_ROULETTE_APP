@@ -1,0 +1,57 @@
+@use "@styles/config/mixins";
+
+@media (width < mixins.$breakpoint_HD) {
+  .header {
+    padding: 0 80px;
+    & .bread {
+      font-size: 18px;
+    }
+    &__inner {
+      column-gap: 36px;
+    }
+    &__info {
+      font-size: 18px;
+    }
+    &__feedback {
+      width: 40px;
+      height: 40px;
+      &_outer[data-active="true"]:after {
+        top: 1px;
+        right: 1px;
+        width: 8px;
+        height: 8px;
+      }
+    }
+  }
+}
+
+@media (width < mixins.$breakpoint_tablet) {
+  .header {
+    padding: 0 40px;
+    & .bread {
+      display: none;
+    }
+    &__open {
+      display: flex;
+    }
+    &__inner {
+      justify-content: space-between;
+      width: 100%;
+    }
+    &__info {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (width < mixins.$breakpoint_smartphone) {
+  .header {
+    padding: 0 12px;
+    &__open {
+      margin-right: 12px;
+    }
+    &__info {
+      font-size: 14px;
+    }
+  }
+}

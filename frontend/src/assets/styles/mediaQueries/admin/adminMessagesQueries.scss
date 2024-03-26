@@ -1,0 +1,42 @@
+@use "@styles/config/mixins";
+
+@media (width < mixins.$breakpoint_HD) {
+  .msg-enter-from,
+  .msg-leave-to {
+    transform: translateY(-550px);
+  }
+
+  .messages {
+    top: 70px;
+    right: 80px;
+    width: 520px;
+    height: 440px;
+  }
+}
+
+@media (width < mixins.$breakpoint_tablet) {
+  .messages {
+    top: 60px;
+    right: 40px;
+    width: 440px;
+    height: 570px;
+  }
+
+  .msg-enter-from,
+  .msg-leave-to {
+    transform: translateY(-600px);
+  }
+}
+
+@media (width < mixins.$breakpoint_smartphone) {
+  .messages {
+    right: 12px;
+    width: calc(100vw - 24px);
+    height: 100%;
+  }
+
+  .msg-enter-from,
+  .msg-leave-to {
+    transform: translateY(-105%);
+  }
+}

@@ -1,0 +1,49 @@
+@use "@styles/config/mixins";
+
+@media (width < mixins.$breakpoint_HD) {
+  .aside {
+    &__container {
+      padding: 32px 18px;
+      row-gap: 32px;
+      max-height: calc(100vh - 70px);
+    }
+    &__inner {
+      row-gap: 12px;
+    }
+    &__title {
+      font-size: 26px;
+    }
+    &__btn {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (width < mixins.$breakpoint_tablet) {
+  .aside {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    &.opened {
+      transform: translateX(0);
+    }
+    &__container {
+      padding: 24px 12px;
+      row-gap: 24px;
+      max-width: 420px;
+      max-height: calc(100vh - 60px);
+    }
+    &__inner {
+      row-gap: 10px;
+    }
+    &__title {
+      font-size: 22px;
+    }
+    &__btn {
+      font-size: 18px;
+    }
+  }
+}

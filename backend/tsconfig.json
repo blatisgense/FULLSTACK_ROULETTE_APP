@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ESNext",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "moduleResolution": "NodeNext",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@types": ["./src/index.d.ts"],
+      "@tests/*": ["./tests/*"],
+      "@helpers/*": ["./src/helpers/*"],
+      "@controllers/*": ["./src/controllers/*"],
+      "@database/*": ["./src/database/*"],
+      "@middleware/*": ["./src/middleware/*"],
+      "@models/*": ["./src/models/*"],
+      "@services/*": ["./src/services/*"]
+    },
+  },
+  "include": ["src/**/*.ts", "**/*.d.ts", "*.config.ts", "tests/**/*.ts", "process-env.d.ts"],
+  "exclude": ["node_modules", "dist"],
+}
